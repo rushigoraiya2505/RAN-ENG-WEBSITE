@@ -1,0 +1,376 @@
+.about-capabilities {
+  padding: 104px 0;
+  color: var(--navy, #071b33);
+  background: #fff;
+  scroll-margin-top: 110px;
+}
+
+.ac-section-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, .75fr);
+  align-items: end;
+  gap: 60px;
+  margin-bottom: 48px;
+}
+
+.ac-section-heading h2 {
+  font-size: clamp(2rem, 3.35vw, 3rem);
+  line-height: 1.18;
+}
+
+.ac-section-intro {
+  font-size: 1rem;
+  line-height: 1.85;
+  padding-bottom: 4px;
+}
+
+.ac-cards {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+.ac-card {
+  grid-column: span 2;
+  min-width: 0;
+  border: 1px solid var(--line, #dce3eb);
+  border-radius: 3px;
+  padding: 22px 24px 0;
+  background: #f8fafc;
+  transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+}
+
+.ac-card:nth-last-child(-n+2) {
+  grid-column: span 3;
+}
+
+.ac-card:hover,
+.ac-card:focus-within {
+  border-color: #9fb6ce;
+  box-shadow: 0 8px 25px #071b3307;
+}
+
+.ac-card-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #5a6e83;
+  font-size: .75rem;
+  line-height: 1;
+  font-weight: 650;
+  letter-spacing: .06em;
+}
+
+.ac-card-cross {
+  color: var(--orange, #ff8a24);
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.ac-schematic {
+  position: relative;
+  margin: 11px 0 22px;
+  color: #345777;
+  background-image: linear-gradient(#224e7306 1px, transparent 1px), linear-gradient(90deg, #224e7306 1px, transparent 1px);
+  background-size: 21px 21px;
+  border-bottom: 1px solid #dce5ee;
+}
+
+.ac-equipment-drawing {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  height: 119px;
+  margin: 0 auto;
+}
+
+.ac-diagram-guides {
+  opacity: .18;
+}
+
+.ac-diagram-accent {
+  color: var(--orange, #ff8a24);
+  fill: #ff8a2417;
+}
+
+.ac-diagram-circuit {
+  color: var(--blue, #087cff);
+  stroke-dasharray: 6 5;
+}
+
+.ac-diagram-light {
+  color: var(--orange, #ff8a24);
+  opacity: .35;
+  fill: #ff8a2409;
+  stroke-width: 1;
+  transition: opacity .3s ease, fill .3s ease;
+}
+
+.ac-diagram-hook {
+  transform-box: fill-box;
+  transform-origin: top center;
+  transition: transform .4s ease;
+}
+
+.ac-card:hover .ac-diagram-hook,
+.ac-card:focus-within .ac-diagram-hook {
+  transform: translateY(3px);
+}
+
+.ac-card:hover .ac-diagram-light,
+.ac-card:focus-within .ac-diagram-light {
+  opacity: .75;
+  fill: #ff8a241c;
+}
+
+.ac-card:hover .ac-diagram-circuit,
+.ac-card:focus-within .ac-diagram-circuit {
+  animation: ac-circuit-flow 4s linear infinite;
+}
+
+.ac-drawing-label {
+  display: block;
+  margin: 7px 0 13px;
+  color: #526a80;
+  font-size: .75rem;
+  text-align: center;
+  line-height: 1.5;
+  letter-spacing: .025em;
+}
+
+.ac-card-copy h3 {
+  max-width: 340px;
+  min-height: 2.5em;
+  font-family: var(--heading, Manrope, Inter, sans-serif);
+  font-size: 1.35rem;
+  line-height: 1.25;
+  letter-spacing: -.035em;
+  margin-bottom: 15px;
+}
+
+.ac-card-copy p {
+  font-size: 1rem;
+  line-height: 1.8;
+  min-height: 7.2em;
+  padding-bottom: 22px;
+}
+
+.ac-card:nth-last-child(-n+2) .ac-card-copy p {
+  min-height: 5.4em;
+}
+
+.ac-card-detail {
+  margin: 0;
+  border-top: 1px solid var(--line, #dce3eb);
+}
+
+.ac-card-detail summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  min-height: 64px;
+  padding: 13px 0;
+  color: var(--navy, #071b33);
+  cursor: pointer;
+  list-style: none;
+  font-size: .875rem;
+  line-height: 1.5;
+  font-weight: 600;
+  border-radius: 2px;
+}
+
+.ac-card-detail summary::-webkit-details-marker {
+  display: none;
+}
+
+.ac-card-detail summary::marker {
+  content: '';
+}
+
+.ac-card-detail summary:hover {
+  color: #0868d2;
+}
+
+.ac-card-detail summary:focus-visible {
+  outline: 3px solid var(--blue, #087cff);
+  outline-offset: 3px;
+}
+
+.ac-card-detail summary svg {
+  flex: 0 0 auto;
+  transition: transform .25s ease;
+}
+
+.ac-card-detail[open] summary svg {
+  transform: rotate(45deg);
+}
+
+.ac-card-detail[open] summary {
+  margin-bottom: 5px;
+}
+
+.ac-photo-collection {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+  padding-bottom: 24px;
+}
+
+.ac-photo-pair {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.ac-equipment-photo {
+  margin: 0;
+  min-width: 0;
+}
+
+.ac-photo-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 190px;
+  height: 230px;
+  overflow: hidden;
+  background: #e7edf3;
+  border: 1px solid #dae3ec;
+}
+
+.ac-photo-frame img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.ac-photo-pair .ac-photo-frame {
+  min-height: 0;
+  height: 170px;
+}
+
+.ac-equipment-photo figcaption {
+  margin-top: 10px;
+  color: #4e647a;
+  font-size: .75rem;
+  line-height: 1.7;
+}
+
+.ac-equipment-photo figcaption > span {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--navy, #071b33);
+  font-weight: 650;
+}
+
+.ac-representative-photo figcaption > span {
+  color: #526a80;
+}
+
+.ac-section-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 38px;
+  padding-top: 29px;
+}
+
+.ac-section-footer > p {
+  max-width: 665px;
+  color: #5b6f84;
+  font-size: .75rem;
+  line-height: 1.85;
+}
+
+.ac-section-footer > a {
+  flex-shrink: 0;
+  min-height: 44px;
+}
+
+@keyframes ac-circuit-flow {
+  to { stroke-dashoffset: -44; }
+}
+
+@media (max-width: 1100px) {
+  .ac-section-heading {
+    grid-template-columns: 1.2fr .8fr;
+    gap: 34px;
+  }
+  .ac-cards { gap: 16px; }
+  .ac-card { padding: 20px 20px 0; }
+  .ac-card-copy h3 { font-size: 1.2rem; }
+  .ac-card-copy p { font-size: .9375rem; min-height: 9em; }
+  .ac-card:nth-last-child(-n+2) .ac-card-copy p { min-height: 5.4em; }
+  .ac-card-detail summary { font-size: .8125rem; gap: 8px; }
+}
+
+@media (max-width: 900px) {
+  .ac-section-heading {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 25px;
+  }
+  .ac-section-intro { max-width: 640px; }
+  .ac-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ac-card,
+  .ac-card:nth-last-child(-n+2) { grid-column: span 1; }
+  .ac-card:last-child { grid-column: 1 / -1; }
+  .ac-card-copy h3 { font-size: 1.35rem; }
+  .ac-card-copy p,
+  .ac-card:nth-last-child(-n+2) .ac-card-copy p { font-size: 1rem; min-height: 7.2em; }
+  .ac-card:last-child .ac-card-copy p { min-height: 0; max-width: 600px; }
+  .ac-card:last-child .ac-card-copy h3 { min-height: 0; max-width: none; }
+  .ac-card-detail summary { font-size: .875rem; }
+  .ac-photo-pair { grid-template-columns: minmax(0, 1fr); }
+  .ac-photo-pair .ac-photo-frame { height: 210px; }
+  .ac-card:last-child .ac-photo-pair { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ac-section-footer { align-items: flex-start; gap: 24px; }
+  .ac-section-footer > p { max-width: 480px; }
+}
+
+@media (max-width: 600px) {
+  .about-capabilities { padding-block: 64px; scroll-margin-top: 92px; }
+  .ac-section-heading { margin-bottom: 32px; gap: 22px; }
+  .ac-section-heading h2 { font-size: 2rem; line-height: 1.2; }
+  .ac-section-intro { font-size: 1rem; line-height: 1.8; }
+  .ac-cards { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .ac-card,
+  .ac-card:nth-last-child(-n+2),
+  .ac-card:last-child { grid-column: auto; padding: 21px 23px 0; }
+  .ac-equipment-drawing { height: 118px; }
+  .ac-schematic { margin-top: 7px; margin-bottom: 22px; }
+  .ac-card-copy h3,
+  .ac-card:last-child .ac-card-copy h3 { font-size: 1.4rem; min-height: 0; max-width: 350px; }
+  .ac-card-copy p,
+  .ac-card:nth-last-child(-n+2) .ac-card-copy p { min-height: 0; padding-bottom: 23px; line-height: 1.8; }
+  .ac-card-detail summary { min-height: 62px; }
+  .ac-photo-pair,
+  .ac-card:last-child .ac-photo-pair { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+  .ac-photo-frame,
+  .ac-photo-pair .ac-photo-frame { height: 230px; min-height: 0; }
+  .ac-section-footer { flex-direction: column; gap: 20px; padding-top: 24px; }
+  .ac-section-footer > p { max-width: none; }
+}
+
+@media (max-width: 380px) {
+  .ac-card,
+  .ac-card:nth-last-child(-n+2),
+  .ac-card:last-child { padding-inline: 19px; }
+  .ac-section-heading h2 { font-size: 1.8rem; }
+  .ac-card-detail summary { font-size: .8125rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-capabilities *,
+  .about-capabilities *::before,
+  .about-capabilities *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .ac-card:hover .ac-diagram-hook,
+  .ac-card:focus-within .ac-diagram-hook { transform: none; }
+}

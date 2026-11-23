@@ -1,0 +1,10 @@
+{
+  "company": "RAN ENGINEERS",
+  "exported_on": "2026-11-23",
+  "website_source_version": 10,
+  "website_source_commit": "5f445b5194b6b7a18b422c874da1aa886ba2fa14",
+  "website": "https://www.ranengineers.com",
+  "package_purpose": "Independent GitHub and Cloudflare Workers deployment",
+  "contains_live_enquiry_records": false,
+  "contains_live_uploaded_attachments": false
+}

@@ -1,0 +1,177 @@
+/* Shared page rhythm. Component controls retain their own usable spacing. */
+:root {
+  --page-gutter: clamp(20px, 4vw, 48px);
+  --section-space: 80px;
+  --section-space-small: 64px;
+  --layout-gap: 48px;
+  --heading-space: 36px;
+  --card-gap: 24px;
+}
+
+.container { width: calc(100% - var(--page-gutter) * 2); max-width: 1280px; }
+.section,
+.about-section,
+.about-capabilities,
+.company-journey,
+.services-overview-section,
+.services-area,
+.services-next-step,
+.industries-sector-section,
+.industries-applications,
+.contact-location,
+.vision-section { padding-block: var(--section-space); }
+
+.journey-gallery-section { padding-block: var(--section-space) 40px; }
+.industries-contact-strip { padding-block: var(--section-space-small); }
+.product-detail-section { padding-bottom: var(--section-space); }
+.product-detail-heading { padding-block: 32px 36px; }
+.page-hero, .contact-hero { padding-block: 28px var(--section-space-small); }
+.breadcrumbs, .contact-hero .breadcrumbs { margin-bottom: 32px; }
+.project-detail-heading { padding-block: 36px; }
+
+.section-top,
+.intro-layout,
+.faq-layout,
+.vision-layout,
+.product-enquiry-layout,
+.dam-experience-intro,
+.projects-introduction,
+.project-detail-grid,
+.product-detail-layout,
+.about-story-grid,
+.about-purpose-heading,
+.ac-section-heading,
+.services-introduction,
+.services-area-heading,
+.services-feature-layout,
+.services-next-layout,
+.industries-section-intro,
+.industries-applications > .container,
+.contact-hero-grid,
+.contact-main-grid { gap: var(--layout-gap); }
+
+.section-top,
+.dam-experience-intro,
+.projects-introduction,
+.about-story-heading,
+.about-purpose-heading,
+.ac-section-heading,
+.journey-heading,
+.journey-gallery-heading,
+.services-area-heading,
+.industries-section-intro,
+.contact-location-heading { margin-bottom: var(--heading-space); }
+
+.product-grid,
+.capability-grid,
+.work-collection,
+.industry-focus-grid,
+.industry-applications-grid,
+.about-purpose-grid { gap: var(--card-gap); }
+.work-collection { row-gap: 32px; }
+.work-copy, .capability-card { padding: 28px; }
+.product-card-copy { padding: 24px; }
+.about-purpose-card { padding: 32px; }
+.about-values-heading { margin-top: var(--layout-gap); }
+.about-story-copy p { margin-bottom: 18px; }
+.about-story-copy .about-story-conclusion { margin-top: 24px; margin-bottom: 0; }
+.about-hero-inner { padding-block: 24px 28px; min-height: 640px; }
+.about-breadcrumbs { margin-bottom: 32px; }
+.about-hero-copy { padding-bottom: 40px; }
+.about-closing-inner { padding-top: var(--section-space); }
+.about-closing-actions { margin-bottom: var(--layout-gap); }
+.journey-stages { padding-top: var(--heading-space); }
+.journey-stage { padding-block: 32px 48px; }
+.journey-stage-card { column-gap: 64px; }
+.services-hero-layout { gap: var(--layout-gap); padding-block: 28px 48px; }
+.services-feature + .services-feature { margin-top: var(--layout-gap); padding-top: var(--layout-gap); }
+.services-project-connections { margin-top: 24px; }
+.services-support { margin-top: 32px; }
+.contact-detail { padding-block: 20px; }
+.contact-direct > p { margin-bottom: 24px; }
+.contact-enquiry-card { padding: 32px; }
+.contact-hero-note { padding-left: 32px; }
+
+/* Balanced footer columns, with room for the address and email links. */
+.footer-cta { padding-block: 64px 48px; gap: var(--layout-gap); align-items: center; }
+.footer-cta > div:last-child { max-width: 400px; padding-bottom: 0; }
+.footer-cta p { margin-bottom: 20px; line-height: 1.75; }
+.footer-grid {
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, .65fr) minmax(0, .95fr) minmax(0, 1.25fr);
+  gap: clamp(24px, 3vw, 44px);
+  padding-block: 48px;
+  align-items: start;
+}
+.footer-grid > div { min-width: 0; }
+.footer-grid h3 { margin: 0 0 16px; line-height: 1.5; }
+.footer-brand > p { margin-block: 18px; line-height: 1.75; }
+.footer-grid > div:not(:first-child) > a {
+  min-height: 36px;
+  margin-block: 3px;
+  padding-block: 3px;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+  align-items: center;
+}
+.footer-grid .footer-enquiry { margin-block: 12px !important; }
+.footer-contact { margin: 0 0 12px; align-items: flex-start; line-height: 1.75; }
+.footer-grid > div:last-child p { font-size: .875rem; }
+.footer-contact > svg { margin-top: 5px; }
+.footer-grid > div > a > svg, .footer-contact > svg { flex-shrink: 0; }
+.footer-bottom { gap: 24px; padding-block: 22px; }
+.footer-bottom > div { gap: 24px; flex-wrap: wrap; }
+
+@media (min-width: 761px) {
+  .dam-hero .hero-main { padding-block: 64px 80px; }
+  .hero-project-caption { bottom: 32px; }
+}
+
+@media (max-width: 1000px) {
+  :root { --section-space: 64px; --section-space-small: 56px; --layout-gap: 32px; --heading-space: 32px; }
+  .footer-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px 48px; }
+  .footer-grid > .footer-brand { grid-column: auto; max-width: none; }
+  .footer-grid > div:last-child { grid-column: auto; display: block; padding-top: 0; border-top: 0; }
+  .footer-grid > div:last-child h3 { margin-bottom: 16px; }
+  .footer-grid > div:last-child .footer-enquiry { margin-block: 12px !important; }
+  .footer-grid > div:not(:first-child) > a { min-height: 44px; margin-block: 0; }
+  .footer-cta { padding-block: 56px 40px; }
+  .contact-enquiry-card { padding: 28px; }
+}
+
+@media (max-width: 760px) {
+  :root { --page-gutter: 20px; --section-space: 56px; --section-space-small: 48px; --layout-gap: 28px; --heading-space: 28px; --card-gap: 20px; }
+  .page-hero, .contact-hero { padding-top: 24px; }
+  .breadcrumbs, .contact-hero .breadcrumbs { margin-bottom: 24px; }
+  .project-detail-heading, .product-detail-heading { padding-block: 28px; }
+  .work-copy, .capability-card, .product-card-copy, .about-purpose-card { padding: 24px; }
+  .work-collection { row-gap: 24px; }
+  .about-hero-inner { min-height: 0; padding-block: 16px 24px; }
+  .about-breadcrumbs { margin-bottom: 28px; }
+  .about-hero-copy { padding-bottom: 32px; }
+  .about-hero-bottom { margin-top: 0; }
+  .journey-gallery-section { padding-bottom: 32px; }
+  .journey-stage { padding-block: 28px 40px; }
+  .journey-stage-card { gap: 24px; }
+  .services-hero-layout { padding-block: 24px 36px; }
+  .services-feature + .services-feature { margin-top: 36px; padding-top: 36px; }
+  .contact-hero-note { padding: 24px 0 0; }
+  .contact-enquiry-card { padding: 24px; }
+  .footer-cta { padding-block: 48px 36px; }
+  .footer-cta > div:last-child { margin-top: 24px; max-width: none; }
+  .footer-grid { gap: 28px 24px; padding-block: 36px; }
+  .footer-grid > .footer-brand, .footer-grid > div:last-child { grid-column: 1 / -1; }
+  .footer-brand > p { max-width: 560px; }
+  .footer-grid > div:last-child { border-top: 1px solid #ffffff21; padding-top: 24px; }
+  .footer-bottom { padding-block: 20px 88px; }
+  .footer-bottom > div { gap: 18px; margin-top: 12px; }
+}
+
+@media (min-width: 761px) and (max-width: 800px) {
+  .contact-hero-note { padding: 24px 0 0; }
+}
+
+@media (max-width: 440px) {
+  :root { --page-gutter: 18px; --layout-gap: 24px; --heading-space: 24px; }
+  .footer-grid { column-gap: 20px; }
+  .contact-enquiry-card { padding: 24px 18px; }
+}

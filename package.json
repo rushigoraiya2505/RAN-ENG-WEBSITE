@@ -1,0 +1,57 @@
+{
+  "name": "ran-engineers",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/cloudflare/config.mjs && vite --host 127.0.0.1",
+    "build": "tsc -b && vite build && vite build --mode prerender --ssr src/entry-server.tsx --outDir .prerender && node scripts/postbuild.mjs",
+    "preview": "node scripts/cloudflare/config.mjs && wrangler dev --config dist/server/wrangler.json --local --persist-to .wrangler/state --ip 127.0.0.1 --port 4173 --inspector-port 0",
+    "check": "tsc -b",
+    "start": "npm run preview",
+    "db:generate": "drizzle-kit generate",
+    "test:enquiries": "node --experimental-strip-types --test scripts/test-enquiries.mjs",
+    "test": "node scripts/test-dam-gate.mjs && node --experimental-strip-types --test scripts/test-enquiries.mjs scripts/test-enquiry-worker.mjs",
+    "check:worker": "tsc --noEmit --target ES2022 --module ESNext --moduleResolution Bundler --allowImportingTsExtensions --skipLibCheck --strict --lib ES2022,DOM,DOM.Iterable worker/index.ts worker/enquiry-validation.ts",
+    "cf:setup": "node scripts/cloudflare/setup.mjs",
+    "cf:config": "node scripts/cloudflare/config.mjs",
+    "db:migrate:local": "node scripts/cloudflare/config.mjs && wrangler d1 migrations apply DB --local --config wrangler.generated.json --persist-to .wrangler/state",
+    "build:cloudflare": "node scripts/cloudflare/deploy.mjs --build-only",
+    "deploy:cloudflare": "node scripts/cloudflare/deploy.mjs",
+    "deploy:prepared": "node scripts/cloudflare/deploy.mjs --prepared",
+    "deploy:check": "node scripts/cloudflare/validate-build.mjs",
+    "test:setup": "node --test scripts/test-cloudflare-setup.mjs",
+    "test:deployment": "node scripts/test-local-deployment.mjs"
+  },
+  "dependencies": {
+    "drizzle-orm": "0.45.2",
+    "lucide-react": "^0.468.0",
+    "motion": "^12.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.0.0"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "1.37.1",
+    "@cloudflare/workers-types": "4.20260515.1",
+    "@tailwindcss/vite": "^4.0.0",
+    "@types/node": "22.19.19",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "6.0.2",
+    "drizzle-kit": "0.31.10",
+    "miniflare": "4.20260515.0",
+    "tailwindcss": "^4.0.0",
+    "typescript": "5.9.3",
+    "vite": "8.0.13",
+    "wrangler": "4.92.0"
+  },
+  "overrides": {
+    "miniflare": {
+      "sharp": "0.35.4"
+    }
+  },
+  "engines": {
+    "node": ">=24 <25"
+  }
+}

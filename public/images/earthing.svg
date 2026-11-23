@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Illustrative chemical earthing arrangement</title>
+  <desc id="desc">A flat cutaway illustration of a copper-toned electrode, connection clamp and backfill in soil. Conceptual illustration without engineering dimensions or ratings.</desc>
+  <defs>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#dbe4ee" stroke-width="1"/></pattern>
+    <pattern id="soil" width="40" height="32" patternUnits="userSpaceOnUse"><path d="m4 21 5-3m17-10 4 2" stroke="#a8a08f" stroke-width="1.4" stroke-linecap="round" opacity=".5"/></pattern>
+    <pattern id="fill" width="23" height="23" patternUnits="userSpaceOnUse"><circle cx="5" cy="6" r="1.5" fill="#6b7982"/><circle cx="16" cy="16" r="1.2" fill="#6b7982"/></pattern>
+    <linearGradient id="copper" x1="0" x2="1"><stop stop-color="#9b542f"/><stop offset=".44" stop-color="#e4a36b"/><stop offset=".66" stop-color="#d58c52"/><stop offset="1" stop-color="#a25a35"/></linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="#eef3f8"/>
+  <rect x="48" y="48" width="1104" height="804" fill="url(#grid)" opacity=".58"/>
+  <path d="M72 123V72h51M1077 72h51v51M1128 777v51h-51M123 828H72v-51" fill="none" stroke="#c1cedc" stroke-width="2"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="104" y="125" fill="#596f86" font-size="17" letter-spacing="3">EARTHING SYSTEMS</text>
+    <text x="104" y="172" fill="#071b33" font-size="32" font-weight="700">A dependable connection to earth.</text>
+    <rect x="168" y="448" width="864" height="290" rx="3" fill="#d9d5c9"/>
+    <rect x="168" y="448" width="864" height="290" rx="3" fill="url(#soil)"/>
+    <path d="M168 538c117-12 145 16 253 6 152-16 177-14 312 1 122 14 181-15 299-7M168 643c134 20 214-21 340-5 122 16 217 18 328 1 81-12 126-7 196 4" fill="none" stroke="#bdb9ac" stroke-width="2"/>
+    <rect x="517" y="448" width="166" height="290" fill="#a8b3b8"/>
+    <rect x="517" y="448" width="166" height="290" fill="url(#fill)" opacity=".7"/>
+    <path d="M168 448h864" stroke="#82918e" stroke-width="5"/>
+    <path d="M168 441v14m864-14v14" stroke="#82918e" stroke-width="2"/>
+    <rect x="585" y="286" width="30" height="423" rx="7" fill="url(#copper)" stroke="#9b5a36" stroke-width="1.5"/>
+    <rect x="582" y="282" width="36" height="15" rx="6" fill="#bd7950"/>
+    <path d="M593 307v375" stroke="#f6c194" stroke-width="3" opacity=".65"/>
+    <rect x="571" y="353" width="58" height="44" rx="5" fill="#c58b62" stroke="#8e5539" stroke-width="2"/>
+    <rect x="567" y="364" width="66" height="22" rx="3" fill="#dbad85"/>
+    <circle cx="579" cy="375" r="5" fill="#071b33"/>
+    <circle cx="621" cy="375" r="5" fill="#071b33"/>
+    <path d="M631 375h117c23 0 36-14 36-36v-35" fill="none" stroke="#0d6763" stroke-width="12" stroke-linecap="round"/>
+    <path d="M631 375h117c23 0 36-14 36-36v-35" fill="none" stroke="#71b8a6" stroke-width="3" stroke-linecap="round"/>
+    <rect x="768" y="278" width="32" height="29" rx="5" fill="#9babb8" stroke="#718697" stroke-width="2"/>
+    <circle cx="784" cy="290" r="6" fill="#edf3f7" stroke="#718697" stroke-width="2"/>
+    <g fill="none" stroke="#7e94aa" stroke-width="1.5">
+      <path d="M574 320H441l-33-33H280"/>
+      <path d="M811 321h69l30-31h90"/>
+      <path d="M696 587h153l32-32h119"/>
+    </g>
+    <circle cx="574" cy="320" r="4" fill="#087cff"/>
+    <circle cx="811" cy="321" r="4" fill="#087cff"/>
+    <circle cx="696" cy="587" r="4" fill="#087cff"/>
+    <text x="280" y="273" fill="#203b55" font-size="19" font-weight="600">Electrode</text>
+    <text x="1000" y="276" fill="#203b55" font-size="19" font-weight="600" text-anchor="end">Connection</text>
+    <text x="1000" y="541" fill="#203b55" font-size="19" font-weight="600" text-anchor="end">Backfill</text>
+    <text x="192" y="484" fill="#6f796f" font-size="15" letter-spacing="2">SOIL</text>
+    <rect x="104" y="783" width="7" height="21" fill="#ff8a24"/>
+    <text x="126" y="800" fill="#526176" font-size="17">Illustrative arrangement</text>
+    <text x="1096" y="800" fill="#718197" font-size="15" text-anchor="end">Final selection follows site assessment.</text>
+  </g>
+</svg>

@@ -1,0 +1,56 @@
+RAN ENGINEERS — COMPLETE GITHUB / CLOUDFLARE DEPLOYMENT
+Current website source: version 10, exported 23 November 2026.
+
+1. EXTRACT THIS ZIP
+   Windows: right-click the ZIP, choose Extract All.
+   Open the extracted project folder. You should see package.json, src,
+   public, worker, drizzle, scripts and .github.
+
+2. PUT THE FILES IN GITHUB
+   Use your private ran-engineers-website repository.
+   Upload the extracted CONTENTS, not the ZIP file or an extra outer folder.
+   package.json must be at the top level of the repository.
+   Include .github/workflows — deployment needs those files.
+   Show hidden items in File Explorer if dotfiles are missing.
+   A browser upload may require multiple batches. GitHub Desktop can copy
+   and commit the entire extracted project in one operation.
+   Replace the earlier package's source/configuration with this release.
+   This release's complete source replaces the old ZIP; it is not a patch.
+   For a clean replacement, keep your Git repository's .git directory,
+   replace its tracked project contents with this package, then review and
+   commit the changes. Never delete any database backups.
+
+3. PREPARE CLOUDFLARE
+   Enable R2 Object Storage in your own Cloudflare account.
+   Create an API token scoped to that account with:
+     Account / Workers Scripts / Edit
+     Account / D1 / Edit
+     Account / Workers R2 Storage / Edit
+     Account / Account Settings / Read
+
+4. ADD TWO GITHUB SECRETS
+   Repository Settings > Secrets and variables > Actions > New repository secret
+   CLOUDFLARE_ACCOUNT_ID = your account ID
+   CLOUDFLARE_API_TOKEN = your API token
+   Do not paste the values into any source file.
+
+5. RUN THE DEPLOYMENT
+   GitHub > Actions > Deploy RAN ENGINEERS to Cloudflare > Run workflow
+   Select the default branch (normally main), then Run workflow.
+   Open the workers.dev link in the completed deployment log.
+
+6. TEST AND MIGRATE
+   Check the website and send a clearly labelled test enquiry.
+   Check the receipt in D1 and optional uploaded file in R2.
+   Move existing customer enquiries/attachments separately if needed.
+   Read docs/DATA-MIGRATION.md before moving www.ranengineers.com.
+
+The setup automatically finds or creates the named D1 database and R2 bucket.
+You do not need to edit a database UUID. Source files, photographs and backend
+code are included; current live database rows and uploaded files are not.
+The existing live site and its domain are not changed by this ZIP.
+
+For automatic updates after the first successful deployment, add GitHub
+repository variable CLOUDFLARE_AUTO_DEPLOY with value true.
+
+For full instructions and troubleshooting, open README.md and docs/DEPLOYMENT.md.

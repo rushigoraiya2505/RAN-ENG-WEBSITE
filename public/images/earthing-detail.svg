@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Illustrative earthing connection and inspection access</title>
+  <desc id="desc">An enlarged flat illustration of an accessible electrode connection within an inspection chamber, shown conceptually without construction dimensions or specifications.</desc>
+  <defs>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#dbe4ee" stroke-width="1"/></pattern>
+    <pattern id="soil" width="40" height="32" patternUnits="userSpaceOnUse"><path d="m4 21 5-3m17-10 4 2" stroke="#a8a08f" stroke-width="1.4" stroke-linecap="round" opacity=".5"/></pattern>
+    <linearGradient id="copper" x1="0" x2="1"><stop stop-color="#9b542f"/><stop offset=".44" stop-color="#e4a36b"/><stop offset=".66" stop-color="#d58c52"/><stop offset="1" stop-color="#a25a35"/></linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="#eef3f8"/>
+  <rect x="48" y="48" width="1104" height="804" fill="url(#grid)" opacity=".58"/>
+  <path d="M72 123V72h51M1077 72h51v51M1128 777v51h-51M123 828H72v-51" fill="none" stroke="#c1cedc" stroke-width="2"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="104" y="125" fill="#596f86" font-size="17" letter-spacing="3">EARTHING SYSTEMS / DETAIL</text>
+    <text x="104" y="172" fill="#071b33" font-size="32" font-weight="700">Designed around access.</text>
+    <rect x="169" y="461" width="862" height="278" fill="#d9d5c9"/>
+    <rect x="169" y="461" width="862" height="278" fill="url(#soil)"/>
+    <path d="M169 461h862" stroke="#82918e" stroke-width="5"/>
+    <rect x="374" y="396" width="452" height="222" rx="5" fill="#8796a4"/>
+    <rect x="398" y="408" width="404" height="185" rx="2" fill="#f2f6f9"/>
+    <path d="M374 419h24m-24 31h24m-24 31h24m-24 31h24m-24 31h24m-24 31h24M802 419h24m-24 31h24m-24 31h24m-24 31h24m-24 31h24m-24 31h24" stroke="#bbc6ce" stroke-width="2"/>
+    <rect x="570" y="585" width="62" height="154" fill="#a8b3b8"/>
+    <rect x="581" y="452" width="40" height="287" rx="8" fill="url(#copper)" stroke="#9b5a36" stroke-width="1.5"/>
+    <rect x="577" y="446" width="48" height="16" rx="5" fill="#b67249"/>
+    <path d="M590 467v255" stroke="#f6c194" stroke-width="4" opacity=".65"/>
+    <rect x="554" y="485" width="94" height="57" rx="7" fill="#c58b62" stroke="#8e5539" stroke-width="2"/>
+    <rect x="547" y="500" width="107" height="25" rx="4" fill="#dbad85"/>
+    <circle cx="565" cy="512" r="7" fill="#071b33"/>
+    <path d="M561 512h8" stroke="#e4edf5" stroke-width="2"/>
+    <circle cx="635" cy="512" r="7" fill="#071b33"/>
+    <path d="M631 512h8" stroke="#e4edf5" stroke-width="2"/>
+    <path d="M652 512h87c29 0 42-10 42-40v-54c0-20 10-30 30-30h96" fill="none" stroke="#0d6763" stroke-width="16" stroke-linecap="round"/>
+    <path d="M652 512h87c29 0 42-10 42-40v-54c0-20 10-30 30-30h96" fill="none" stroke="#71b8a6" stroke-width="4" stroke-linecap="round"/>
+    <rect x="351" y="298" width="498" height="30" rx="6" fill="#152e46"/>
+    <rect x="362" y="290" width="476" height="15" rx="4" fill="#2b475f"/>
+    <path d="M405 301h90m60 0h90m60 0h90" stroke="#7390a7" stroke-width="3"/>
+    <path d="M383 339v43m434-43v43" stroke="#7e94aa" stroke-width="1.5" stroke-dasharray="5 5"/>
+    <g fill="none" stroke="#7e94aa" stroke-width="1.5">
+      <path d="M354 310h-74l-31-32H154"/>
+      <path d="M542 513h-95l-37 35H227"/>
+      <path d="M826 558h74l34 34h112"/>
+    </g>
+    <circle cx="354" cy="310" r="4" fill="#087cff"/>
+    <circle cx="542" cy="513" r="4" fill="#087cff"/>
+    <circle cx="826" cy="558" r="4" fill="#087cff"/>
+    <text x="154" y="264" fill="#203b55" font-size="19" font-weight="600">Inspection access</text>
+    <text x="227" y="574" fill="#203b55" font-size="19" font-weight="600">Connection clamp</text>
+    <text x="1046" y="618" fill="#203b55" font-size="19" font-weight="600" text-anchor="end">Chamber</text>
+    <rect x="104" y="783" width="7" height="21" fill="#ff8a24"/>
+    <text x="126" y="800" fill="#526176" font-size="17">Illustrative arrangement</text>
+    <text x="1096" y="800" fill="#718197" font-size="15" text-anchor="end">Connection detail shown conceptually.</text>
+  </g>
+</svg>

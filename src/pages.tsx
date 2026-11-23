@@ -1,0 +1,84 @@
+import { useEffect, useState } from 'react';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
+import { Zap, Factory, ShieldCheck, Lightbulb, HardHat, Check, Download, FileText, MapPin, Mail, Phone, Clock, MessageCircle, Compass, CircleCheck, Info, ExternalLink } from 'lucide-react';
+import { company, products, services, industries, industriesNotice, projects, serviceGroups } from './data';
+import { site, enquiryHref, safeHttpUrl } from './site';
+import { Photo, ButtonLink, Eyebrow, SectionHeading, Reveal, ProductCard, ProcessTimeline, FAQSection, Gallery, PageHero } from './components';
+import EnquiryForm from './EnquiryForm';
+import { DamGateExperience } from './DamGateExperience';
+import { ProjectCollection } from './ProjectShowcase';
+import { JourneyGallery } from './JourneyGallery';
+
+const serviceGroupId = (group: string) => `service-${group.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+const groupDescriptions: Record<string, string> = {
+  'Electrical systems': 'Distribution, control and installation for the equipment that keeps infrastructure working.',
+  'Mechanical services': 'Mechanical and electrical overhauling for gantry cranes serving dam infrastructure.',
+  'Lighting & site infrastructure': 'High-mast lighting, cable management and earthing, coordinated around the site.'
+};
+function ServiceCategories({ dark = false }: { dark?: boolean }) {
+  return <div className={`capability-grid ${dark ? 'on-dark' : ''}`}>{serviceGroups.map((group, i) => {
+    const Icon = [Zap, HardHat, Lightbulb][i];
+    return <article className="capability-card" key={group}><Icon size={30} strokeWidth={1.5} /><h3>{group}</h3><p>{groupDescriptions[group]}</p><ul>{services.filter(service => service.group === group).map(service => <li key={service.id}><Link to={`/services#${service.id}`}>{service.title}</Link></li>)}</ul><Link className="text-link" to={`/services#${serviceGroupId(group)}`}>Explore services</Link></article>;
+  })}</div>;
+}
+
+export function HomePage() {
+  const sani = projects[1];
+  return <>
+    <section className="home-hero dam-hero">
+      <div className="hero-background"><Photo src={sani.image} alt={sani.imageAlt} eager /></div>
+      <div className="container hero-main">
+        <div className="hero-copy"><Eyebrow light>RAN ENGINEERS · GUJARAT</Eyebrow><h1><span>Electrical &amp; Mechanical</span><span>Engineering for</span><em>Dam Infrastructure</em></h1><p>{company.heroDescription}</p><div className="hero-actions"><ButtonLink to="/projects">View Our Projects</ButtonLink><ButtonLink to={enquiryHref()} variant="light">Discuss Your Project</ButtonLink></div></div>
+        <Link className="hero-project-caption" to={`/projects/${sani.id}`}><span>PROJECT SPOTLIGHT</span><strong>Sani Dam</strong><small>National flag lighting · Gujarat</small></Link>
+      </div>
+      <div className="hero-capabilities"><div className="container"><Link to="/services#service-electrical-systems"><Zap size={24} /><span><strong>Electrical systems</strong><small>Panels, controls & installation</small></span></Link><Link to="/services#service-mechanical-services"><HardHat size={24} /><span><strong>Mechanical services</strong><small>Gantry crane overhauling</small></span></Link><Link to="/services#service-lighting-site-infrastructure"><Lightbulb size={24} /><span><strong>Infrastructure lighting</strong><small>High-mast & site illumination</small></span></Link></div></div>
+    </section>
+    <section className="section dam-experience-section" id="explore-panel"><div className="container"><div className="dam-experience-intro"><div><Eyebrow>ENGINEERING, IN MOTION</Eyebrow><h2>Operate a dam gate.<br /><span>Explore the engineering.</span></h2></div><div><p>Follow the connection between electrical control and mechanical movement. Open, close and stop the sluice gate, explore the cabinet components, and see how the system responds.</p><Link className="text-link" to="/services#dam-electrical-mechanical-works">Explore our dam engineering services</Link></div></div><DamGateExperience /></div></section>
+    <JourneyGallery />
+    <section className="section capabilities-section"><div className="container"><div className="section-top"><SectionHeading dark label="OUR ENGINEERING CAPABILITIES" title={<>From equipment supply<br />to work on site.</>} /><p className="section-top-description">A clear scope across electrical systems, mechanical services and the infrastructure around them.</p></div><ServiceCategories dark /><div className="sitc-note"><strong>SITC</strong><span>Supply, Installation, Testing and Commissioning</span></div></div></section>
+    <section id="products" className="section product-section"><div className="container"><div className="section-top"><SectionHeading label="PRODUCTS & EQUIPMENT" title={<>The right components.<br />A connected solution.</>} /><div className="section-top-aside"><p>Electrical panels, crane controls, cable trays, poles, high-mast lighting and chemical earthing systems.</p><Link className="text-link" to="/products">Explore all products</Link></div></div><div className="product-grid">{products.map(product => <ProductCard key={product.id} product={product} />)}</div></div></section>
+    <FAQSection limit={4} />
+  </>;
+}
+
+export { AboutPage } from './AboutPage';
+
+export function ProductsPage() {
+  const [category, setCategory] = useState('All products'); const categories = ['All products', ...new Set(products.map(p => p.category))]; const filtered = category === 'All products' ? products : products.filter(p => p.category === category);
+  return <><PageHero eyebrow="Our products" title={<>Designed for purpose.<br /><em>Engineered to connect.</em></>} description="Explore electrical panels, cable management, lighting infrastructure and earthing solutions for your next project." image="/images/control-room.webp" />
+    <section className="section product-section catalogue"><div className="container"><div className="filter-row"><div className="filter-chips" role="group" aria-label="Filter products">{categories.map(c => <button key={c} aria-pressed={category === c} onClick={() => setCategory(c)} className={category === c ? 'active' : ''}>{c}</button>)}</div><span className="results-count" aria-live="polite">{filtered.length} products</span></div><div className="product-grid">{filtered.map(p => <ProductCard key={p.id} product={p} />)}</div><div className="catalogue-help"><FileText size={32} /><div><h3>Have a drawing or a specific requirement?</h3><p>Share the application, quantity and scope. We’ll start from there.</p></div><ButtonLink to={enquiryHref()} variant="dark">Request a quotation</ButtonLink></div></div></section><FAQSection limit={5} /></>;
+}
+export function ProductDetailPage() {
+  const { slug } = useParams(); const product = products.find(p => p.id === slug);
+  if (!product) return <NotFoundPage />;
+  return <><div className="product-detail-heading container"><div className="breadcrumbs dark"><Link to="/">Home</Link><span>/</span><Link to="/products">Products</Link><span>/</span><span>{product.title}</span></div><Eyebrow>{product.category}</Eyebrow><h1>{product.title}</h1><p>{product.shortDescription}</p></div><section className="product-detail-section"><div className="container product-detail-layout"><Gallery key={product.id} images={product.gallery} title={product.title} /><div className="product-detail-copy"><span className="category-label">BUILT AROUND YOUR APPLICATION</span><h2>Define the requirement.<br />Engineer the solution.</h2><p className="lead">{product.description}</p><h3>Typical applications</h3><ul className="check-list">{product.applications.map(a => <li key={a}><Check size={17} />{a}</li>)}</ul><details className="specification" open><summary>Typical specifications &amp; options<span><PlusMark /></span></summary><p className="specification-intro">Common engineering configurations for enquiry planning. Each supplied product follows its approved drawings, equipment schedule and purchase specification.</p><table aria-label={`${product.title} typical specifications`}><tbody>{product.specifications.map(s => <tr key={s.label}><th scope="row">{s.label}</th><td>{s.value}</td></tr>)}</tbody></table><div className="specification-reference"><span>Configuration reference</span><a href={product.specificationReference.url} target="_blank" rel="noopener noreferrer">{product.specificationReference.label}<ExternalLink size={14} aria-hidden="true" /></a></div></details><div className="brochure"><FileText size={25} /><div><strong>Product brochure</strong><span>{product.brochureUrl ? 'Download the current product information.' : 'Verified product brochure will be added here.'}</span></div>{product.brochureUrl ? <a href={product.brochureUrl} download className="icon-button" aria-label="Download product brochure"><Download size={21} /></a> : <span className="unavailable-tag">Coming soon</span>}</div><ButtonLink to={enquiryHref(product.title)} arrow>Enquire about this product</ButtonLink></div></div></section>
+    <section className="section requirement-section" id="product-enquiry"><div className="container product-enquiry-layout"><div><SectionHeading label="MAKE IT PROJECT-SPECIFIC" title={<>Your application.<br />Your configuration.</>} description="A clear enquiry helps define the correct equipment and supply scope." /><ul className="prompt-list">{product.enquiryPrompts.map(p => <li key={p}><CircleCheck size={20} />{p}</li>)}</ul><p className="subtle-note">Drawings and specifications can be attached in the form.</p></div><EnquiryForm initialRequirement={product.title} compact /></div></section><section className="section"><div className="container"><SectionHeading label="KEEP EXPLORING" title="Connected solutions." /><div className="product-grid">{products.filter(p => p.id !== product.id).slice(0, 3).map(p => <ProductCard key={p.id} product={p} compact />)}</div></div></section></>;
+}
+function PlusMark() { return <span aria-hidden="true">+</span>; }
+
+export { ServicesPage } from './ServicesPage';
+
+export function ProjectsPage() {
+  const [filter, setFilter] = useState('All projects');
+  const filters = ['All projects', 'Dam infrastructure', 'Port infrastructure'];
+  const visible = projects.filter(project => filter === 'All projects' || (filter === 'Port infrastructure' ? project.id.startsWith('pipavav') : !project.id.startsWith('pipavav')));
+  return <><PageHero eyebrow="Our projects" title={<>Engineering at work.<br /><em>Across Gujarat.</em></>} description="Electrical and mechanical work for dam infrastructure, alongside crane electrical works in the port environment. Explore our project experience and engineering scopes." image={projects[1].image} imageAlt={projects[1].imageAlt} imageCaption="Sani Dam · Infrastructure lighting" />
+    <section className="section projects-catalogue"><div className="container"><div className="projects-introduction"><div><Eyebrow>DAM INFRASTRUCTURE & BEYOND</Eyebrow><h2>Experience, seen on site.</h2></div><p>Our work includes dam projects for the Government of Gujarat, covering electrical distribution, gantry crane works and infrastructure lighting.</p></div><div className="filter-row"><div className="filter-chips" role="group" aria-label="Filter projects">{filters.map(option => <button key={option} aria-pressed={filter === option} className={filter === option ? 'active' : ''} onClick={() => setFilter(option)}>{option}</button>)}</div><span className="results-count" aria-live="polite">{visible.length} {visible.length === 1 ? 'project' : 'projects'}</span></div><ProjectCollection projects={visible} featureFirst={filter !== 'Port infrastructure'} /><div className="sitc-explainer"><strong>SITC</strong><span>Supply, Installation, Testing and Commissioning</span></div></div></section></>;
+}
+export function ProjectDetailPage() {
+  const { slug } = useParams(); const project = projects.find(p => p.id === slug); if (!project) return <NotFoundPage />;
+  const next = projects[(projects.indexOf(project) + 1) % projects.length];
+  return <><section className="project-detail-heading"><div className="container"><div className="breadcrumbs dark"><Link to="/">Home</Link><span>/</span><Link to="/projects">Projects</Link><span>/</span><span>{project.location}</span></div><Eyebrow>{project.category}</Eyebrow><h1>{project.title}</h1><p><MapPin size={19} />{project.location}</p></div></section><section className="section project-record"><div className="container"><div className="project-detail-grid"><Gallery key={project.id} images={project.gallery} title={project.title} imageAlts={project.gallery.map(() => project.imageAlt)} actual /><div className="project-detail-story"><Eyebrow>PROJECT OVERVIEW</Eyebrow><h2>{project.location}</h2>{project.scopeLine && <p className="project-scope-line">{project.scopeLine}</p>}<p className="lead">{project.description}</p><dl className="project-facts"><div><dt>Location</dt><dd>{project.location}</dd></div><div><dt>Service category</dt><dd>{project.category}</dd></div></dl><h3>Scope of work</h3><ul className="check-list">{project.scope.map(scope => <li key={scope}><Check size={17} />{scope}</li>)}</ul><ButtonLink to={enquiryHref(project.category)} variant="dark">Discuss Your Project</ButtonLink></div></div><div className="project-pagination"><Link className="text-link" to="/projects">View all projects</Link><Link to={`/projects/${next.id}`}><span>EXPLORE THE NEXT PROJECT</span><strong>{next.title}</strong></Link></div></div></section></>;
+}
+
+export { IndustriesPage } from './IndustriesPage';
+
+export { ContactPage } from './ContactPage';
+
+export function PrivacyPage() {
+  return <><PageHero eyebrow="Privacy policy" title={<>Your information.<br /><em>A clear purpose.</em></>} description="How this website handles your contact details and project enquiries." /><section className="section"><article className="container prose-page"><h2>Information you choose to provide</h2><p>The enquiry form asks for your name, company, email address, phone number, required product or service, project location, quantity and message. You may attach a drawing or specification. Provide only information needed to discuss your project and files you are entitled to share.</p><h2>Enquiry submission and confirmation</h2><p>Submitted details are saved to the website’s private enquiry database. Optional attachments are saved in private file storage linked to the enquiry. A success message appears only after the service confirms a stored record and returns a reference number. The confirmation acknowledges receipt; it does not promise a quotation or a response time.</p><h2>How your information is used</h2><p>RAN ENGINEERS uses the information you submit to understand your requirements and respond to your enquiry. The form asks for consent to contact you for this purpose. Enquiries and drawings are not published on this website.</p><h2>Storage and abuse prevention</h2><p>The website uses Cloudflare-hosted database and file storage for enquiries. Form drafts are not saved in your browser’s persistent storage. Temporary form-session tokens, submission identifiers and a daily changing digest of the network address help prevent spam and duplicate requests. Raw network addresses are not saved in the enquiry database. Hosting providers may process request information necessary to operate the website.</p><h2>External services</h2><p>This website does not use advertising analytics. Google Maps loads only when you choose to load the map; opening directions also takes you to Google. The steel-industry photograph may load from an external image provider. Those providers receive the requests needed to display their services.</p><h2>Questions, corrections or removal requests</h2><p>For questions about information submitted through this website, or to request a correction or removal, contact <a href="mailto:sales@ranengineers.com">sales@ranengineers.com</a> or <a href="mailto:ranengineers@gmail.com">ranengineers@gmail.com</a>. Include your enquiry reference where available.</p><h2>Project photographs and illustrative content</h2><p>The six project records use photographs and scopes supplied by RAN ENGINEERS. Other photographs illustrate products and industrial applications. The interactive dam gate is an educational demonstration and does not operate or specify an industrial installation.</p><Link className="text-link" to="/contact">Return to contact</Link></article></section></>;
+}
+
+export function NotFoundPage() {
+  return <section className="not-found container"><Eyebrow>PAGE NOT FOUND</Eyebrow><h1>Let’s reconnect.</h1><p>This page isn’t part of the current website. Explore the product range or return home.</p><div className="hero-actions"><ButtonLink to="/" variant="dark">Back to home</ButtonLink><ButtonLink to="/products" variant="outline">Explore products</ButtonLink></div></section>;
+}

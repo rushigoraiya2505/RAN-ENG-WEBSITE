@@ -1,0 +1,63 @@
+[
+  {
+    "id": "cement-industry",
+    "file": "cement-plant-night.webp",
+    "title": "Industrial Cement Plant Illuminated at Night",
+    "photographer": "Joseph Russo",
+    "sourceUrl": "https://www.pexels.com/photo/industrial-cement-plant-illuminated-at-night-29590119/",
+    "originalImageUrl": "https://images.pexels.com/photos/29590119/pexels-photo-29590119.jpeg",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "originalWidth": 4967,
+    "originalHeight": 3039,
+    "sourcePublicationDate": "2024-12-01",
+    "sourceVerifiedOn": "2026-11-21",
+    "licenseEvidence": "The primary photo page names Joseph Russo, identifies a cement plant at Monolith, California, and links the Pexels License. The official license permits free website use and modification without attribution, while prohibiting implied endorsement.",
+    "modification": "Resized proportionally to 1600 × 979 and encoded as WebP at quality 86; no cropping, retouching or generative editing.",
+    "usage": "Cement-sector application imagery. The photographed plant is in Monolith, California; it is not identified as a RAN ENGINEERS project, facility or customer relationship.",
+    "retrievalStatus": "Primary source and license verified, original downloaded and optimized locally for site delivery.",
+    "fallback": {
+      "file": "/images/wire-cable-tray.webp",
+      "title": "Wire cable tray01",
+      "photographer": "Leotard",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wire_cable_tray01.jpg",
+      "originalImageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Wire_cable_tray01.jpg",
+      "license": "Public domain — author release",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Wire_cable_tray01.jpg#Licensing",
+      "originalWidth": 3888,
+      "originalHeight": 2592,
+      "sourceVerifiedOn": "2026-11-21",
+      "licenseEvidence": "The author identifies this as their own work and explicitly releases it into the public domain worldwide, with use for any purpose without conditions where public-domain dedication is not legally possible.",
+      "modification": "Resized proportionally to 1600 × 1067 and encoded as WebP at quality 86; no cropping, retouching or generative editing.",
+      "behavior": "On source-load failure, use this local cable-management photograph and update the visible caption and alt text to match. Internal provenance remains in this manifest."
+    }
+  },
+  {
+    "id": "steel-industry",
+    "title": "Wagons with Vats of Molten Metal in a Steelworks",
+    "photographer": "Bence Szemerey",
+    "sourceUrl": "https://www.pexels.com/photo/wagons-with-vats-of-molten-metal-in-a-steelworks-6804258/",
+    "originalImageUrl": "https://images.pexels.com/photos/6804258/pexels-photo-6804258.jpeg",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "originalWidth": 5000,
+    "originalHeight": 3333,
+    "sourcePublicationDate": "2021-02-12",
+    "sourceVerifiedOn": "2026-11-21",
+    "licenseEvidence": "The primary photo page names Bence Szemerey, labels the photo free under the linked Pexels License, and provides its original dimensions. The official license permits website use and modification while prohibiting implied endorsement.",
+    "modification": "Pexels CDN requested at 1600 pixels wide in compressed WebP, with responsive CSS framing. No generative editing or retouching.",
+    "usage": "Representative steel-sector photograph. Not identified as RAN ENGINEERS work, premises or a client relationship.",
+    "retrievalStatus": "Primary source and official license verified via web retrieval. Direct binary download returned HTTP 403 (error code 1010); currently referenced from the verified image CDN.",
+    "intendedLocalFilename": "steelworks.webp",
+    "fallback": {
+      "file": "/images/crane.webp",
+      "title": "Industrial overhead crane in warehouse setting",
+      "photographer": "Cemrecan Yurtman",
+      "sourceUrl": "https://www.pexels.com/photo/industrial-overhead-crane-in-warehouse-setting-29224602/",
+      "license": "Pexels License",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "modification": "Existing resized WebP from the repository. CSS framing only.",
+      "behavior": "On source-load failure, use this local industrial-lifting photograph and update the visible caption and alt text to match. Internal provenance remains in this manifest."
+    }
+  }
+]
